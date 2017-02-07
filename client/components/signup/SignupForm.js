@@ -3,7 +3,7 @@ import timezones from '../../data/timezones';
 import map from 'lodash/map';
 import classnames from 'classnames';
 import validateInput from '../../../server/shared/validations/signup';
-import TextFieldGroup from '../common/TextFieldGroup'
+import TextFieldGroup from '../common/TextFieldGroup';
 
 export default class SignupForm extends Component {
 	constructor(props) {
@@ -44,7 +44,9 @@ export default class SignupForm extends Component {
 				isLoading: true
 			});
 			this.props.userSignupRequest(this.state).then(
-				() => { },
+				() => {
+					this.context.router.push('/');
+				},
 				({data}) => this.setState({
 					errors: data,
 					isLoading: false
@@ -61,7 +63,7 @@ export default class SignupForm extends Component {
 		return (
 			<form onSubmit={this.onSubmit}>
 				<h1>Join our community!</h1>
-				
+
 				<TextFieldGroup
 					error={errors.username}
 					label='Username'
@@ -75,7 +77,7 @@ export default class SignupForm extends Component {
 					label='Email'
 					onChange={this.onChange}
 					value={this.state.email}
-					field='username'
+					field='email'
 				/>
 
 				<TextFieldGroup
@@ -116,6 +118,10 @@ export default class SignupForm extends Component {
 		);
 	}
 }
+
+SignupForm.contextTypes = {
+	router: React.PropTypes.object.isRequired
+};
 
 SignupForm.propTypes = {
 	userSignupRequest: React.PropTypes.func.isRequired
