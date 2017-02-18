@@ -21,15 +21,15 @@ const compiler = webpack(webpackConfig);
 
 app.use(webpackMiddleware(compiler));
 app.use(webpackHotMiddleware(compiler, {
-	hot: true,
-	publicPath: webpackConfig.output.publicPath,
-	noInfo: true
+    hot: true,
+    publicPath: webpackConfig.output.publicPath,
+    noInfo: true
 }));
 
 app.get('/*', (req, res) => {
-	res.sendFile(path.join(__dirname, './index.html'));
+    res.sendFile(path.join(__dirname, './index.html'));
 });
 
 app.listen(3000, () => {
-	console.log(' server running on port 3000');
+    console.log(' server running on port 3000');
 });
