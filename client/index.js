@@ -6,7 +6,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './rootReducer';
 import setAuthorizationToken from './utils/setAuthorizationToken';
-import jwtDecode from 'jsonwebtoken';
+import jwtDecode from 'jwt-decode';
 import { setCurrentUser } from './actions/authActions.js';
 
 import routes from './routes';
