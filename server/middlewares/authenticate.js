@@ -23,7 +23,7 @@ export default (req, res, next) => {
                     } else {
                         req.currentUser = user;
                         next();
-                    }
+                    } 
                 });
             }
         });
