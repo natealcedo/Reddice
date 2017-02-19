@@ -34,7 +34,7 @@ class LoginForm extends Component {
             this.setState({ errors: {}, isLoading: true });
             this.props.login(this.state).then(
                 res => this.context.router.push('/'),
-                err => this.setState({ errors: err.data.errors, isLoading: false })
+                err => this.setState({ errors: err.response.data.errors, isLoading: false })
             );
         }
     }
@@ -70,10 +70,10 @@ class LoginForm extends Component {
                 type='password'
             />
 
-            <div className="form-group">
-                <button className="btn btn-primary btn-lg" disabled={isLoading}>Login</button>
-            </div>
-        </form>
+                <div className="form-group">
+                    <button className="btn btn-primary btn-lg" disabled={isLoading}>Login</button>
+                </div>
+            </form>
         );
     }
 }

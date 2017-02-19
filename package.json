@@ -18,7 +18,7 @@
     "webpack-hot-middleware": "^2.16.1"
   },
   "dependencies": {
-    "axios": "0.12.0",
+    "axios": "0.13.1",
     "bcrypt": "^1.0.2",
     "body-parser": "^1.16.0",
     "bookshelf": "^0.10.3",
